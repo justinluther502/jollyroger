@@ -1,0 +1,5 @@
+export const SAVE_SESSION = "SAVE_SESSION"
+export const ADD_PLANPATH = "ADD_PLANPATH"
+export const ADD_FRONTIER = "ADD_FRONTIER"
+export const ADD_PORTFOLIO = "ADD_PORTFOLIO"
+export const ADD_NOTES = "ADD_NOTES"
