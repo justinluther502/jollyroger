@@ -14,7 +14,7 @@ Vue.use(IconsPlugin)
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 axios.defaults.xsrfCookieName = "csrftoken"
-Vue.prototype.$appname = "Jolly Roger"
+Vue.prototype.$appname = "Indie Adviser"
 const token = localStorage.getItem('user-token')
 if (token) {
   axios.defaults.headers.common['Authorization'] = 'JWT ' + token

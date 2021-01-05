@@ -20,7 +20,7 @@ export default {
       menu_categories: {
         client_options: {
           id: 1,
-          title: "Manage My Clients",
+          title: "Manage Clients",
           buttons: {
             client_list: {
               id: 0,
@@ -47,7 +47,7 @@ export default {
         },
         mpt_options: {
           id: 2,
-          title: "Portfolio Optimization Tools",
+          title: "Portfolio Optimization",
           buttons: {
             basic_mpt: {
               id: 0,
@@ -68,7 +68,7 @@ export default {
         },
         fin_plans: {
           id: 3,
-          title: "Financial Planning Tools",
+          title: "Cashflow Planning",
           buttons: {
             new_plan: {
               title: "Create a New Financial Plan",
@@ -100,7 +100,7 @@ export default {
         },
         advsession: {
           id: 5,
-          title: "Advising Session",
+          title: "Session Logs",
           buttons: {
             viewsession: {
               id: 0,
