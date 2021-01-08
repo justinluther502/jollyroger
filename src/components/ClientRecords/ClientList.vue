@@ -1,6 +1,12 @@
 <template>
   <main role="main" class="container">
     <h1 class="display-4">Client List</h1>
+
+    <div class="spinner-border text-primary" role="status"
+         v-if="!clientsLoaded">
+      <span class="sr-only">Loading...</span>
+    </div>
+
     <transition name="slide-fade">
       <div class="list-group col-md-10" v-if="clientsLoaded">
         <router-link v-for="client in clients" :key="client.attrs.accountId"
@@ -24,7 +30,7 @@
 </template>
 
 <script>
-import apiCall from "@/utils/api";
+import apiCall from "@/utils/api"
 
 export default {
   name: "ClientList",

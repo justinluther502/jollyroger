@@ -1,5 +1,9 @@
 <template>
   <main role="main">
+    <div class="spinner-border text-primary" role="status"
+         v-if="!detailLoaded">
+      <span class="sr-only">Loading...</span>
+    </div>
     <div class="jumbotron" v-if="detailLoaded">
       <div class="container" v-if="detailLoaded">
         <h1 class="display-3" v-if="detailLoaded">
