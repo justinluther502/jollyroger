@@ -15,11 +15,21 @@
           <h1 class="display-4" v-else>{{ title }}</h1>
 
           <p>{{ slidetext }}</p>
-          <p>
-            <router-link class="btn btn-lg btn-primary" to="/">
-              Show me the demo video >>
-            </router-link>
-          </p>
+          <b-button v-b-modal="title" variant="primary"
+                    class="font-weight-bold">
+            Show me the demo video >>
+          </b-button>
+          <b-modal :id="title" centered title="Indie Adviser Demo" size="xl">
+            <!--            <p class="my-4">Vertically centered modal!</p>-->
+            <div>
+              <b-embed
+                  type="iframe"
+                  aspect="16by9"
+                  src="https://www.youtube.com/embed/LDL1bXtxTK0"
+                  allowfullscreen
+              ></b-embed>
+            </div>
+          </b-modal>
         </div>
       </div>
     </div>
