@@ -19,8 +19,13 @@
                     class="font-weight-bold">
             Show me the demo video >>
           </b-button>
-          <b-modal :id="title" centered title="Indie Adviser Demo" size="xl">
-            <!--            <p class="my-4">Vertically centered modal!</p>-->
+          <b-modal :id="title" centered title="Indie Adviser Demo" size="xl"
+                   header-bg-variant="dark"
+                   header-text-variant="light"
+                   body-bg-variant="dark"
+                   body-text-variant="light"
+                   footer-bg-variant="dark"
+                   footer-text-variant="light">
             <div>
               <b-embed
                   type="iframe"
