@@ -45,12 +45,14 @@ export default new Router({
     {
       path: "/ClientList",
       component: ClientList,
-      name: 'client-list'
+      name: 'client-list',
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/Client/:id",
       component: ClientDetail,
-      name: 'client-detail'
+      name: 'client-detail',
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/onboardCheck",
@@ -60,12 +62,14 @@ export default new Router({
     {
       path: "/MPT/:mpt_type",
       component: MPTPage,
-      props: true
+      props: true,
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/finplans/new",
       component: newFInPlan,
-      name: 'new-plan'
+      name: 'new-plan',
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/compliance",
@@ -75,12 +79,14 @@ export default new Router({
     {
       path: "/session",
       component: AdvisingSession,
-      name: 'advising-session'
+      name: 'advising-session',
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/Client/:id/newnotes",
       component: NewNote,
-      name: 'new-note'
+      name: 'new-note',
+      beforeEnter: ifAuthenticated
     },
     {
       path: "/login",
