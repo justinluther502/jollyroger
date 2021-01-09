@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <b-modal id="new-asset-modal" title="Add New Asset" size="lg" @ok="pushAsset">
     <form>
       <div class="form-group">
         <label for="asset-name">Asset Name</label>
@@ -26,11 +26,8 @@
         <input type="number" id="asset-return" class="form-control"
                v-model="expected_return">
       </div>
-      <button class="btn btn-primary" v-on:click="pushAsset">
-        Add this asset
-      </button>
     </form>
-  </div>
+  </b-modal>
 </template>
 
 <script>

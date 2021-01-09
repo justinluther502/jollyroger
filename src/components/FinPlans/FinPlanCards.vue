@@ -17,7 +17,8 @@
       </div>
     </div>
     <hr>
-    <div class="card-deck">
+
+    <div class="card-deck" :key="added_item_count">
       <div class="card shadow-lg" style="width: 18rem;"
            v-for="(input, cat_idx) in fp_inputs" :key="input.id">
         <div class="card-body">
@@ -47,19 +48,12 @@
     <br>
     <div class="row">
       <div class="col">
-        <new-asset v-if="fp_inputs.assets.add_form_visible"
-                   v-on:add-asset="updateCashflowList($event, 'assets')">
-        </new-asset>
-        <new-expense v-if="fp_inputs.expenses.add_form_visible"
-                     v-on:add-expense="updateCashflowList($event, 'expenses')">
+        <new-asset v-on:add-asset="updateCashflowList($event, 'assets')" />
+        <new-expense v-on:add-expense="updateCashflowList($event, 'expenses')">
         </new-expense>
-        <new-income v-if="fp_inputs.employment_incomes.add_form_visible"
-                    v-on:add-income="updateCashflowList($event,
-                'employment_incomes')">
-        </new-income>
-        <new-s-s v-if="fp_inputs.ss_incomes.add_form_visible"
-                 v-on:add-ss="updateCashflowList($event, 'ss_incomes')">
-        </new-s-s>
+        <new-income v-on:add-income="updateCashflowList($event,
+        'employment_incomes')" />
+        <new-s-s v-on:add-ss="updateCashflowList($event, 'ss_incomes')" />
       </div>
     </div>
     <hr>
@@ -98,32 +92,26 @@ export default {
       },
     }
   },
+  computed: {
+    added_item_count() {
+      return this.indices.assets + this.indices.expenses + this.indices.incomes
+          + this.indices.ss
+    }
+  },
   methods: {
     // makes the correct form visible to input an instance of CF data.
     addCashflow(cashflowtype) {
       if (cashflowtype == 'Current Assets') {
-        this.fp_inputs.assets.add_form_visible = true
-        this.fp_inputs.expenses.add_form_visible = false
-        this.fp_inputs.employment_incomes.add_form_visible = false
-        this.fp_inputs.ss_incomes.add_form_visible = false
+        this.$bvModal.show('new-asset-modal')
       }
       if (cashflowtype == 'Expenses') {
-        this.fp_inputs.assets.add_form_visible = false
-        this.fp_inputs.expenses.add_form_visible = true
-        this.fp_inputs.employment_incomes.add_form_visible = false
-        this.fp_inputs.ss_incomes.add_form_visible = false
+        this.$bvModal.show('new-expense-modal')
       }
       if (cashflowtype == 'Employment Incomes') {
-        this.fp_inputs.assets.add_form_visible = false
-        this.fp_inputs.expenses.add_form_visible = false
-        this.fp_inputs.employment_incomes.add_form_visible = true
-        this.fp_inputs.ss_incomes.add_form_visible = false
+        this.$bvModal.show('new-income-modal')
       }
       if (cashflowtype == 'Social Security Incomes') {
-        this.fp_inputs.assets.add_form_visible = false
-        this.fp_inputs.expenses.add_form_visible = false
-        this.fp_inputs.employment_incomes.add_form_visible = false
-        this.fp_inputs.ss_incomes.add_form_visible = true
+        this.$bvModal.show('new-ss-modal')
       }
     },
     // push the filled-out form for the cashflow to the DOM.
@@ -147,7 +135,6 @@ export default {
         this.fp_inputs[cf_type].list[newname].id = this.indices.ss
         this.indices.ss++
       }
-      this.fp_inputs[cf_type].add_form_visible = false
     },
     dummyPlan() {
       //this is just for quick filling in plan info while I'm working on the

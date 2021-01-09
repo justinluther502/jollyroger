@@ -1,5 +1,6 @@
 <template>
-  <div class="row">
+  <b-modal id="new-expense-modal" title="Add New Expense" size="lg"
+           @ok="pushExpense">
     <form>
       <div class="form-group">
         <label for="expense-name">Expense Name</label>
@@ -16,11 +17,8 @@
         <input type="number" id="growth" class="form-control"
                v-model="growth">
       </div>
-      <button class="btn btn-primary" v-on:click="pushExpense">
-        Add this expense
-      </button>
     </form>
-  </div>
+  </b-modal>
 </template>
 
 <script>

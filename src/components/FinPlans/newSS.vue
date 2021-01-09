@@ -1,5 +1,6 @@
 <template>
-  <div class="row">
+  <b-modal id="new-ss-modal" title="Add New Social Security Income" size="lg"
+           @ok="pushSS">
     <form>
       <div class="form-group">
         <label for="ss-name">Beneficiary Name</label>
@@ -11,11 +12,8 @@
         <label for="start">Benefit Start Year</label>
         <input type="date" id="start" v-model="start_date">
       </div>
-      <button class="btn btn-primary" v-on:click="pushSS">
-        Add this Social Security benefit
-      </button>
     </form>
-  </div>
+  </b-modal>
 </template>
 
 <script>

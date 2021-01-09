@@ -1,5 +1,6 @@
 <template>
-  <div class="row">
+  <b-modal id="new-income-modal" title="Add New Employment Income" size="lg"
+           @ok="pushIncome">
     <form>
       <div class="form-group">
         <label for="income-name">Income Name</label>
@@ -16,11 +17,8 @@
         <input type="number" id="growth" class="form-control"
                v-model="growth">
       </div>
-      <button class="btn btn-primary" v-on:click="pushIncome">
-        Add this income
-      </button>
     </form>
-  </div>
+  </b-modal>
 </template>
 
 <script>
