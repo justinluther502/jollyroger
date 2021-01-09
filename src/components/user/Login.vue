@@ -16,12 +16,12 @@
     </div>
     <div class="row">
       <div class="col-6">
-          <b-button v-on:click="loginUser" class="mr-1" variant="primary">
-            Login
-          </b-button>
-          <b-button :to="loginUser" class="mr-1" variant="success">
-            Register as New Adviser
-          </b-button>
+        <b-button v-on:click="loginUser" class="mr-1" variant="primary">
+          Login
+        </b-button>
+        <b-button :to="{ name: 'register' }" class="mr-1" variant="success">
+          Register as New Adviser
+        </b-button>
       </div>
     </div>
   </main>

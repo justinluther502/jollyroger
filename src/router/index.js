@@ -12,6 +12,7 @@ import Compliance from "@/components/ComplianceDocs/Compliance"
 import Settings from "@/components/user/Settings"
 import AdvisingSession from "@/components/AdvisingSession/AdvisingSession"
 import NewNote from "@/components/ClientRecords/NewNote"
+import NewAdviser from "@/components/user/NewAdviser"
 
 Vue.use(Router)
 
@@ -99,6 +100,11 @@ export default new Router({
       component: Settings,
       name: 'account',
       beforeEnter: ifAuthenticated
+    },
+    {
+      path: "/register",
+      component: NewAdviser,
+      name: 'register'
     }
   ]
 })
