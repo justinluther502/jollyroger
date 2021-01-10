@@ -14,6 +14,7 @@ const getters = {
 const mutations = {
   [FIRST_VISIT_COMPLETE]: (state) => {
     state.visited = "visited already"
+    localStorage.setItem("visited", "visited already")
   }
 }
 
