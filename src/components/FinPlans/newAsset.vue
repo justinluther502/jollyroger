@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="new-asset-modal" title="Add New Asset" size="lg" @ok="pushAsset">
+  <b-modal id="new-asset-modal" title="Add New Asset" size="md" @ok="pushAsset">
     <form>
       <div class="form-group">
         <label for="asset-name">Asset Name</label>
@@ -23,7 +23,7 @@
           <option>HY Bonds</option>
         </select>
         <label for="asset-return">Expected Return</label>
-        <input type="number" id="asset-return" class="form-control"
+        <input type="number" step="0.01" id="asset-return" class="form-control"
                v-model="expected_return">
       </div>
     </form>

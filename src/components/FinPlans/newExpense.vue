@@ -1,30 +1,39 @@
 <template>
-  <b-modal id="new-expense-modal" title="Add New Expense" size="lg"
+  <b-modal id="new-expense-modal" title="Add New Expense" size="md"
            @ok="pushExpense">
-    <form>
-      <div class="form-group">
-        <label for="expense-name">Expense Name</label>
-        <input type="text" id="expense-name" class="form-control"
-               v-model="name">
-        <label for="exp-amount">Expense Starting Amount</label>
-        <input type="number" id="exp-amount" class="form-control"
-               v-model="amount">
-        <label for="start">Expense Start Year</label>
-        <input type="date" id="start" v-model="start_date">
-        <label for="end">Expense End Date</label>
-        <input type="date" id="end" v-model="end_date">
-        <label for="growth">Expected Expense Annual Growth</label>
-        <input type="number" id="growth" class="form-control"
-               v-model="growth">
-      </div>
-    </form>
+    <b-form>
+      <b-form-row>
+        <b-form-group label="Expense Name">
+          <b-form-input type="text" v-model="name" required/>
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Expense Starting Amount">
+          <b-form-input type="number" v-model="amount"/>
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Expense Start Year" class="mr-2">
+          <b-form-input type="date" v-model="start_date"/>
+        </b-form-group>
+        <b-form-group label="Expense End Date" class="mr-2">
+          <b-form-input type="date" v-model="end_date"/>
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Expected Expense Annual Growth">
+          <b-form-input type="number" v-model="growth" step="0.01" />
+        </b-form-group>
+      </b-form-row>
+
+    </b-form>
   </b-modal>
 </template>
 
 <script>
 export default {
   name: "newExpense.vue",
-  data () {
+  data() {
     return {
       name: "",
       amount: 0,
@@ -34,7 +43,7 @@ export default {
     }
   },
   methods: {
-    pushExpense () {
+    pushExpense() {
       this.$emit('add-expense', this.$data)
     }
   }

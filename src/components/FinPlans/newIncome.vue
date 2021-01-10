@@ -1,30 +1,40 @@
 <template>
-  <b-modal id="new-income-modal" title="Add New Employment Income" size="lg"
+  <b-modal id="new-income-modal" title="Add New Employment Income" size="md"
            @ok="pushIncome">
-    <form>
-      <div class="form-group">
-        <label for="income-name">Income Name</label>
-        <input type="text" id="income-name" class="form-control"
-               v-model="name">
-        <label for="inc-amount">Income Starting Amount</label>
-        <input type="number" id="inc-amount" class="form-control"
-               v-model="amount">
-        <label for="start">Income Start Year</label>
-        <input type="date" id="start" v-model="start_date">
-        <label for="end">Income End Year</label>
-        <input type="date" id="end" v-model="end_date">
-        <label for="growth">Expected Income Annual Growth</label>
-        <input type="number" id="growth" class="form-control"
-               v-model="growth">
-      </div>
-    </form>
+    <b-form>
+      <b-form-row>
+        <b-form-group label="Income Name">
+          <b-form-input type="text" v-model="name"/>
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Income Starting Amount">
+          <b-form-input type="number" v-model="amount"/>
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Income Start Year" class="mr-2">
+          <b-form-input type="date" v-model="start_date" />
+        </b-form-group>
+        <b-form-group label="Income End Year" class="mr-2">
+          <b-form-input type="date" id="end" v-model="end_date" />
+        </b-form-group>
+      </b-form-row>
+      <b-form-row>
+        <b-form-group label="Expected Annual Income Growth">
+          <b-form-input type="number" v-model="growth" step="0.01"/>
+        </b-form-group>
+      </b-form-row>
+
+
+    </b-form>
   </b-modal>
 </template>
 
 <script>
 export default {
   name: "newIncome.vue",
-  data () {
+  data() {
     return {
       name: "",
       amount: 0,
@@ -34,7 +44,7 @@ export default {
     }
   },
   methods: {
-    pushIncome () {
+    pushIncome() {
       this.$emit('add-income', this.$data)
     }
   }
