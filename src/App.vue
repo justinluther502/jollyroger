@@ -20,10 +20,18 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import {AUTH_LOGOUT, AUTH_REFRESH} from "@/store/actions/auth"
+import {mapGetters} from 'vuex'
+import jwt_decode from "jwt-decode"
+import store from "@/store"
 
 export default {
   components: {
     TopNav
+  },
+  computed: {
+    ...mapGetters([
+      'isAuthenticated'
+    ])
   },
   data() {
     return {
@@ -36,17 +44,34 @@ export default {
       console.log(this.showSide)
     }
   },
-  created() {
-    axios.interceptors.response.use(undefined, function (err) {
-      return new Promise(function (resolve, reject) {
-        if (err.status === 401 && err.config &&
-            !err.config.__isRetryRequest) {
-          // if you ever get an unauthorized, logout the user
-          this.$store.dispatch(AUTH_LOGOUT)
-          // you can also redirect to /login if needed !
+  mounted() {
+    axios.interceptors.response.use(function (response) {
+      // Any status code that lie within the range of 2xx cause this function to
+      // trigger. Do something with response data.
+
+      // Decode stored jwt token, check if it is close to expiry. If it's close,
+      // have vuex send a request to refresh the token.
+      const token = localStorage.getItem('user-token')
+      if (token != null) {
+        const decoded = jwt_decode(token)
+        const exp = decoded.exp
+        const now = Date.now() / 1000
+        const secondsleft = exp - now
+        if (secondsleft < 240) {
+          store.dispatch(AUTH_REFRESH)
         }
-        throw err
-      })
+      }
+      return response
+    }, function (error) {
+      // Any status codes that falls outside the range of 2xx cause this
+      // function to trigger. Do something with response error
+      // const originalReq = error.config
+
+      // tells vuex to logout if backend tells us our jwt token expired.
+      if (error.response.status === 401) {
+        store.dispatch(AUTH_LOGOUT)
+      }
+      return Promise.reject(error)
     })
   }
 }

@@ -17,7 +17,7 @@ const state = {
 
 const getters = {
   isAuthenticated: state => !!state.token,
-  authStatus: state => state.status
+  authStatus: state => state.status,
 }
 
 const actions = {
@@ -47,10 +47,15 @@ const actions = {
       resolve()
     })
   },
-  [AUTH_REFRESH]: ({ commit }, user) => {
+  [AUTH_REFRESH]: ({ commit }) => {
     return  new Promise((resolve, reject) => {
       commit(AUTH_REQUEST)
-      apiCall({ url: "/api-token-refresh/", data: user, method: "POST" })
+      apiCall({
+        url: "/api-token-refresh/",
+        data: {
+          token: localStorage.getItem('user-token')
+        },
+        method: "POST" })
         .then(resp => {
           localStorage.setItem("user-token", resp.data.token)
           axios.defaults.headers.common['Authorization'] = 'JWT ' +

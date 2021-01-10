@@ -11,18 +11,18 @@ import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(Meta)
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 axios.defaults.xsrfCookieName = "csrftoken"
 Vue.prototype.$appname = "Indie Adviser"
 const token = localStorage.getItem('user-token')
 if (token) {
+
   axios.defaults.headers.common['Authorization'] = 'JWT ' + token
 
 }
-
 Chart.plugins.register(ChartDataLabels)
-Vue.use(Meta)
 Vue.config.productionTip = false
 
 new Vue({

@@ -25,6 +25,7 @@
     "core-js": "^3.6.5",
     "elliptic": "^6.5.3",
     "jquery": "^3.5.1",
+    "jwt-decode": "^3.1.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.20",
     "minimist": "^0.2.1",
