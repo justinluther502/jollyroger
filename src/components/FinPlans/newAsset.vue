@@ -44,7 +44,13 @@ export default {
   },
   methods: {
     pushAsset () {
-      this.$emit('add-asset', this.$data)
+      const item_data = Object.assign({}, this.$data)
+      this.$emit('add-asset', item_data)
+      this.name = ""
+      this.value = 0
+      this.tax_type = ""
+      this.asset_class = ""
+      this.expected_return = 0.0
     }
   }
 }
