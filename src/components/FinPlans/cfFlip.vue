@@ -17,7 +17,6 @@
     <div>
       <yearlist :years="years"/>
     </div>
-    {{years}}
   </div>
 </template>
 

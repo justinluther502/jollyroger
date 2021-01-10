@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     pushSS() {
-      const item_data = this.$data
+      const item_data = Object.assign({}, this.$data)
       this.$emit('add-ss', item_data)
       this.name = ""
       this.amount = 0
