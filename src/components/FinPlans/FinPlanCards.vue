@@ -61,8 +61,6 @@
     <button class="btn btn-block btn-lg btn-dark" v-on:click="generateFinPlan">
       Generate Financial Plan
     </button>
-    <br>
-    <button v-on:click="dummyPlan">Debug Dummy Plan</button>
   </div>
 </template>
 
@@ -135,81 +133,6 @@ export default {
         this.fp_inputs[cf_type].list[newname].id = this.indices.ss
         this.indices.ss++
       }
-    },
-    dummyPlan() {
-      //this is just for quick filling in plan info while I'm working on the
-      //cashflow chart. Delete later. Not for production.
-      this.fp_inputs['assets'].list["Fidelity"] = {
-        id: 0,
-        name: "Fidelity",
-        value: 100000,
-        tax_type: "Taxable",
-        asset_class: "Domestic IG Bonds",
-        expected_return: 0.0
-      }
-      this.fp_inputs['assets'].list["JPM"] = {
-        id: 1,
-        name: "JPM",
-        value: 1000,
-        tax_type: "Roth",
-        asset_class: "Domestic Stocks",
-        expected_return: 0.0
-      }
-      this.fp_inputs['assets'].list["JPM Trad 401k"] = {
-        id: 2,
-        name: "JPM Trad 401k",
-        value: 60000,
-        tax_type: "Traditional",
-        asset_class: "HY Bonds",
-        expected_return: 0.0
-      }
-      this.indices.assets = this.indices.assets + 3
-
-      this.fp_inputs['expenses'].list["Food"] = {
-        id: 0,
-        name: "Food",
-        amount: 27000,
-        start_date: "2020-01-01",
-        end_date: "2100-01-01",
-        growth: 0.02
-      }
-      this.fp_inputs['expenses'].list["Rent"] = {
-        id: 1,
-        name: "Rent",
-        amount: 30000,
-        start_date: "2020-01-01",
-        end_date: "2100-01-01",
-        growth: 0.03
-      }
-      this.fp_inputs['expenses'].list["Other"] = {
-        id: 2,
-        name: "Other",
-        amount: 5000,
-        start_date: "2020-01-01",
-        end_date: "2100-01-01",
-        growth: 0.02
-      }
-      this.indices.expenses = this.indices.expenses + 3
-
-      this.fp_inputs['employment_incomes'].list["Work Income"] = {
-        id: 0,
-        name: "Work Income",
-        amount: 100000,
-        start_date: "2020-01-01",
-        end_date: "2050-01-01",
-        growth: 0.02
-      }
-      this.indices.incomes++
-
-      this.fp_inputs['ss_incomes'].list["SS Benefit"] = {
-        id: 0,
-        name: "SS Benefit",
-        amount: 30000,
-        start_date: "2051-01-01"
-      }
-      this.indices.ss++
-
-      this.$forceUpdate()
     },
     generateFinPlan() {
       axios.post(this.api_endpoint, this.$props)
