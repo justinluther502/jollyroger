@@ -33,7 +33,11 @@ export default {
   },
   methods: {
     pushSS() {
-      this.$emit('add-ss', this.$data)
+      const item_data = this.$data
+      this.$emit('add-ss', item_data)
+      this.name = ""
+      this.amount = 0
+      this.start_date = ""
     }
   }
 }

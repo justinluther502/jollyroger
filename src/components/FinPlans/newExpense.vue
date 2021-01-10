@@ -44,7 +44,13 @@ export default {
   },
   methods: {
     pushExpense() {
-      this.$emit('add-expense', this.$data)
+      const item_data = Object.assign({}, this.$data)
+      this.$emit('add-expense', item_data)
+      this.name = ""
+      this.amount = 0
+      this.start_date = ""
+      this.end_date = ""
+      this.growth = 0.0
     }
   }
 }
