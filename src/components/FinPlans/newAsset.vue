@@ -7,7 +7,7 @@
                v-model="name">
         <label for="asset-value">Current Value</label>
         <input type="number" id="asset-value" class="form-control"
-               v-model="value">
+               v-model.number="value">
         <label for="asset-tax">Taxable Type</label>
         <select class="form-control" id="asset-tax" v-model="tax_type">
           <option>Taxable</option>
@@ -24,7 +24,7 @@
         </select>
         <label for="asset-return">Expected Return</label>
         <input type="number" step="0.01" id="asset-return" class="form-control"
-               v-model="expected_return">
+               v-model.number="expected_return">
       </div>
     </form>
   </b-modal>

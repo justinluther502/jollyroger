@@ -9,7 +9,7 @@
       </b-form-row>
       <b-form-row>
         <b-form-group label="Benefit Starting Amount">
-          <b-input type="number" v-model="amount"/>
+          <b-input type="number" v-model.number="amount"/>
         </b-form-group>
       </b-form-row>
       <b-form-row>

@@ -9,7 +9,7 @@
       </b-form-row>
       <b-form-row>
         <b-form-group label="Expense Starting Amount">
-          <b-form-input type="number" v-model="amount"/>
+          <b-form-input type="number" v-model.number="amount"/>
         </b-form-group>
       </b-form-row>
       <b-form-row>
@@ -22,7 +22,7 @@
       </b-form-row>
       <b-form-row>
         <b-form-group label="Expected Expense Annual Growth">
-          <b-form-input type="number" v-model="growth" step="0.01" />
+          <b-form-input type="number" v-model.number="growth" step="0.01" />
         </b-form-group>
       </b-form-row>
 
