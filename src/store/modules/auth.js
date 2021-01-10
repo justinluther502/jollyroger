@@ -3,7 +3,8 @@ import {
   AUTH_REQUEST,
   AUTH_ERROR,
   AUTH_SUCCESS,
-  AUTH_LOGOUT
+  AUTH_LOGOUT,
+  AUTH_REFRESH
 } from "../actions/auth"
 import axios from 'axios'
 import apiCall from "@/utils/api"
@@ -44,6 +45,24 @@ const actions = {
       localStorage.removeItem("user-token")
       delete axios.defaults.headers.common['Authorization']
       resolve()
+    })
+  },
+  [AUTH_REFRESH]: ({ commit }, user) => {
+    return  new Promise((resolve, reject) => {
+      commit(AUTH_REQUEST)
+      apiCall({ url: "/api-token-refresh/", data: user, method: "POST" })
+        .then(resp => {
+          localStorage.setItem("user-token", resp.data.token)
+          axios.defaults.headers.common['Authorization'] = 'JWT ' +
+            resp.data.token
+          commit(AUTH_SUCCESS, resp)
+          resolve(resp)
+        })
+        .catch(err => {
+          commit(AUTH_ERROR, err)
+          localStorage.removeItem("user-token")
+          reject(err)
+        })
     })
   }
 }
