@@ -1,6 +1,6 @@
 <template>
   <main role="main" class="container">
-    <h1 class="display-4">Client List</h1>
+    <h1 class="display-4">Demo Client List</h1>
 
     <div class="spinner-border text-primary" role="status"
          v-if="!clientsLoaded">
@@ -10,7 +10,7 @@
     <transition name="slide-fade">
       <div class="list-group col-md-10" v-if="clientsLoaded">
         <router-link v-for="client in clients" :key="client.attrs.accountId"
-                     :to="{ name: 'client-detail',
+                     :to="{ name: 'fake-client-detail',
                      params: { id: client.attrs.accountId} }"
                      class="list-group-item list-group-item-action flex-column
          align-items-start active border-dark">
@@ -31,6 +31,7 @@
 
 <script>
 import apiCall from "@/utils/api"
+import axios from "axios"
 
 export default {
   name: "ClientList",
@@ -68,53 +69,27 @@ export default {
           })
     },
     getAllClients() {
-      const query_url1 = process.env.VUE_APP_IB_FLEX_QUERY_PATH +
-          this.ibkr_key + '&q=451386&v=3'
       var parseString = require('xml2js').parseString
-
-      axios.get(query_url1)
+      axios.get('mockClientList.xml')
           .then(response => {
-            parseString(response.data, {attrkey: 'attrs', explicitArray: false},
+            parseString(response.data, {
+                  attrkey: 'attrs',
+                  explicitArray: false
+                },
                 (err, result) => {
                   if (err) {
                     //Do something
                   } else {
-                    this.reportKey = result['FlexStatementResponse'][
-                        'ReferenceCode']
+                    this.clients = result['FlexQueryResponse'][
+                        'FlexStatements']['FlexStatement']
+                    this.clientsLoaded = true
                   }
                 }
             )
-
-            const query_url2 = process.env.VUE_APP_IB_FLEX_STATEMENT_PATH +
-                this.reportKey + '&t=' + this.ibkr_key + '&v=3'
-
-            //short pause before 2nd request because ibkr xml returns 1019
-            // error if we ask too fast after getting a ref code from
-            // 1st request.
-            setTimeout(() => {
-              axios.get(query_url2)
-                  .then(response => {
-                    parseString(response.data, {
-                          attrkey: 'attrs',
-                          explicitArray: false
-                        },
-                        (err, result) => {
-                          if (err) {
-                            //Do something
-                          } else {
-                            this.clients = result['FlexQueryResponse'][
-                                'FlexStatements']['FlexStatement']
-                            this.clientsLoaded = true
-                          }
-                        }
-                    )
-                  })
-            }, 200)
           })
     }
   }
 }
-import axios from 'axios'
 </script>
 
 <style>

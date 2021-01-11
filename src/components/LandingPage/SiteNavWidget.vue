@@ -24,25 +24,32 @@ export default {
           buttons: {
             client_list: {
               id: 0,
-              title: "Client List",
+              title: "Client List (IBKR users only)",
               destination: "/ClientList",
               icon_component: "ClientSVG",
               show: true
             },
-            new_client: {
-              id: 1,
-              title: "Add A New Client",
-              destination: "/addClient",
+            fake_client_list: {
+              id: 3,
+              title: "Demo Client List",
+              destination: "/FakeClientList",
               icon_component: "ClientSVG",
               show: true
             },
-            client_dashboard: {
-              id: 2,
-              title: "Client Dashboard",
-              destination: "/",
-              icon_component: "PaperDocSVG",
-              show: true
-            }
+            // new_client: {
+            //   id: 1,
+            //   title: "Add A New Client",
+            //   destination: "/addClient",
+            //   icon_component: "ClientSVG",
+            //   show: true
+            // },
+            // client_dashboard: {
+            //   id: 2,
+            //   title: "Client Dashboard",
+            //   destination: "/",
+            //   icon_component: "PaperDocSVG",
+            //   show: true
+            // }
           }
         },
         mpt_options: {

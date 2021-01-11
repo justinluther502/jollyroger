@@ -13,6 +13,8 @@ import Settings from "@/components/user/Settings"
 import AdvisingSession from "@/components/AdvisingSession/AdvisingSession"
 import NewNote from "@/components/ClientRecords/NewNote"
 import NewAdviser from "@/components/user/NewAdviser"
+import FakeClientList from "@/components/ClientRecords/FakeClientList"
+import FakeClientDetail from "@/components/ClientRecords/FakeClientDetail"
 
 Vue.use(Router)
 
@@ -47,6 +49,18 @@ export default new Router({
       path: "/ClientList",
       component: ClientList,
       name: 'client-list',
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: "/FakeClientList",
+      component: FakeClientList,
+      name: 'fake-client-list',
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: "/FakeClientDetail/:id",
+      component: FakeClientDetail,
+      name: 'fake-client-detail',
       beforeEnter: ifAuthenticated
     },
     {

@@ -1,0 +1,70 @@
+<FlexQueryResponse queryName="client-info" type="AF">
+    <FlexStatements count="3">
+        <FlexStatement accountId="1234" fromDate="20210108"
+                       toDate="20210213"
+                       period="LastBusinessDay" whenGenerated="20210111;172850">
+            <AccountInformation accountId="1234" acctAlias="" currency="USD"
+                                name="Dwight Schrute"
+                                accountType="Advisor Client"
+                                customerType="IRA-Roth New"
+                                dateOpened="20200105"
+                                dateFunded="20200106"
+                                street="123 Church St."
+                                street2="Apt 1" city="Wood Haven" state="VA"
+                                country="United States" postalCode="90210"
+                                streetResidentialAddress="123 Church St."
+                                street2ResidentialAddress="Apt 1"
+                                cityResidentialAddress="Wood Haven"
+                                stateResidentialAddress="VA"
+                                countryResidentialAddress="United States"
+                                postalCodeResidentialAddress="90210"
+                                masterName="Luther Wealth Management, LLC"
+                                ibEntity="IBLLC-US"
+                                primaryEmail="email123425@gmail.com"/>
+
+        </FlexStatement>
+        <FlexStatement accountId="525" fromDate="19891010"
+                       toDate="20210423" period="LastBusinessDay"
+                       whenGenerated="20210111;172851">
+            <AccountInformation accountId="525" acctAlias="" currency="USD"
+                                name="Andy Dwyer"
+                                accountType="Advisor Client"
+                                customerType="IRA-Roth New"
+                                dateOpened="20200113" dateFunded="20200116"
+                                street="123 Falls Creek"
+                                street2="Apt 2" city="Beverly Hills" state="MO"
+                                country="United States" postalCode="90210"
+                                streetResidentialAddress="123 Falls Creek"
+                                street2ResidentialAddress="Apt 2"
+                                cityResidentialAddress="Beverly Hills"
+                                stateResidentialAddress="MO"
+                                countryResidentialAddress="United States"
+                                postalCodeResidentialAddress="90210"
+                                masterName="Luther Wealth Management, LLC"
+                                ibEntity="IBLLC-US"
+                                primaryEmail="mambvnb@gmail.com"/>
+
+        </FlexStatement>
+        <FlexStatement accountId="444" fromDate="20210108"
+                       toDate="20210108" period="LastBusinessDay"
+                       whenGenerated="20210111;172851">
+            <AccountInformation accountId="444" acctAlias="" currency="USD"
+                                name="Jim Halpert"
+                                accountType="Advisor Client"
+                                customerType="Individual" dateOpened="20181212"
+                                dateFunded="20181220" street="662 Willow Lane"
+                                street2="" city="North Southerland" state="AK"
+                                country="United States" postalCode="90210"
+                                streetResidentialAddress="662 Willow Lane"
+                                street2ResidentialAddress=""
+                                cityResidentialAddress="North Southerland"
+                                stateResidentialAddress="AK"
+                                countryResidentialAddress="United States"
+                                postalCodeResidentialAddress="90210"
+                                masterName="Luther Wealth Management, LLC"
+                                ibEntity="IBLLC-US"
+                                primaryEmail="bwntnt@gmail.com"/>
+
+        </FlexStatement>
+    </FlexStatements>
+</FlexQueryResponse>
