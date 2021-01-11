@@ -44,6 +44,25 @@ export default {
       console.log(this.showSide)
     }
   },
+  watch: {
+    isAuthenticated(newval) {
+      if (newval) {
+        this.$bvToast.toast(`Welcome to Adviser Tools!`, {
+          title: 'Login Successful',
+          variant: 'primary',
+          toaster: 'b-toaster-top-center',
+          autoHideDelay: 5000
+        })
+      } else {
+        this.$bvToast.toast(`You have been logged out.`, {
+          title: 'Logout Notification',
+          variant: 'primary',
+          toaster: 'b-toaster-top-center',
+          autoHideDelay: 5000
+        })
+      }
+    }
+  },
   mounted() {
     axios.interceptors.response.use(function (response) {
       // Any status code that lie within the range of 2xx cause this function to

@@ -42,7 +42,6 @@ export default {
     loginUser() {
       const username = this.username
       const password = this.password
-      console.log('logging in...')
       this.$store.dispatch(AUTH_REQUEST, {username, password})
           .then(
               this.$router.push('/')

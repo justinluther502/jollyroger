@@ -35,7 +35,6 @@ export default {
           .then(() => {
             this.$router.push('/login')
           })
-      console.log('logging out')
     }
   },
   data() {
