@@ -85,7 +85,6 @@ export default {
       }
       return false;
     },
-
     // takes the returns and risks from chartdata received from optimizer
     // and packages it nicely into an x:y format for chart-js to use.
     // output is an array of the format:
@@ -127,7 +126,6 @@ export default {
     }
   },
   methods: {
-
     // AJAX request to backend to get the titles and return data of
     // individual assets. Used for Advanced MPT where joint return is pre-
     // calculated.
@@ -151,7 +149,6 @@ export default {
             this.pageview = 1
           })
     },
-
     // AJAX request to backend to get the titles and return data of
     // individual assets. Used for Basic MPT where joint return will be
     // calculated by backend.
@@ -178,7 +175,6 @@ export default {
             this.pageview = 1
           })
     },
-
     // AJAX request to backend to run the optimizer given a set of asset
     // weight constraints.
     runOptimizer() {
@@ -186,7 +182,14 @@ export default {
       var constraints = {}
       constraints["mins"] = this.mins
       constraints["maxes"] = this.maxes
-      axios.post(this.MPTendpoint, constraints)
+      axios({
+        method: 'post',
+        url: this.MPTendpoint,
+        data: constraints,
+        options: {
+          withCredentials: true
+        }
+      })
           .then(response => {
             this.chartdata = response.data
             this.waiting = false
