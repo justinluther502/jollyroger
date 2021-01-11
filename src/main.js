@@ -18,9 +18,7 @@ axios.defaults.xsrfCookieName = "csrftoken"
 Vue.prototype.$appname = "Indie Adviser"
 const token = localStorage.getItem('user-token')
 if (token) {
-
   axios.defaults.headers.common['Authorization'] = 'JWT ' + token
-
 }
 Chart.plugins.register(ChartDataLabels)
 Vue.config.productionTip = false
