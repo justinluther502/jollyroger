@@ -53,8 +53,8 @@ export default {
           tinytitle: "Do This Yourself",
           photo: 'business-suit.jpg',
           portrait: "business-man-portrait.jpg",
-          slidetext: this.$appname + ' is designed to help financial advisers' +
-              ' break away from large financial institutions without ' +
+          slidetext: this.$appname + ' is designed to help financial ' +
+              'advisers break away from large financial institutions without ' +
               'sacrificing modern analytics and client management tools.',
           shorttext: this.$appname + ' is designed to help financial advisers' +
               'break away from large financial institutions.',
