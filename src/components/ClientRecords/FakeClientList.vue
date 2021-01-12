@@ -1,7 +1,14 @@
 <template>
   <main role="main" class="container">
     <h1 class="display-4">Demo Client List</h1>
-
+    <b-modal id="fakeclient-list-modal" title="Client List Demo" size="lg">
+      <p>
+        This is the Client List page for logged-in users that don't have real
+        adviser accounts at Interactive Brokers. If you are a financial adviser
+        and have your IBKR flex-web-query token attached to your account, try
+        out the live client data view in Client List, under Manage Clients.
+      </p>
+    </b-modal>
     <div class="spinner-border text-primary" role="status"
          v-if="!clientsLoaded">
       <span class="sr-only">Loading...</span>
@@ -50,6 +57,9 @@ export default {
     setTimeout(() => {
       this.getAllClients()
     }, 200)
+  },
+  mounted() {
+    this.$bvModal.show('fakeclient-list-modal')
   },
   methods: {
     getUserProfile() {

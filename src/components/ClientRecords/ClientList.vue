@@ -1,7 +1,14 @@
 <template>
   <main role="main" class="container">
     <h1 class="display-4">Client List</h1>
-
+    <b-modal id="client-list-modal" title="Client List Demo" size="lg">
+      <p>
+        This is the Client List page for logged-in clients that have IBKR
+        accounts with attached flex-web-query tokens. If you are not an actual
+        financial adviser with a valid token attached to your account, try the
+        Demo Client List Page listed under Manage Clients.
+      </p>
+    </b-modal>
     <div class="spinner-border text-primary" role="status"
          v-if="!clientsLoaded">
       <span class="sr-only">Loading...</span>
@@ -49,6 +56,9 @@ export default {
     setTimeout(() => {
       this.getAllClients()
     }, 200)
+  },
+  mounted() {
+    this.$bvModal.show('client-list-modal')
   },
   methods: {
     getUserProfile() {

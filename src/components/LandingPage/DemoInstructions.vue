@@ -21,12 +21,6 @@
         testing account. Just attach your IBKR flex-web-query token to your
         Indie Adviser account during account creation.
       </li>
-      <li>
-        The Client List and Client Detail pages require a registered user
-        to have a valid IBKR flex web query token. I'm still working on the
-        backend connection so a refresh or two might be required to get the
-        pages to display.
-      </li>
     </ul>
   </div>
 </template>
