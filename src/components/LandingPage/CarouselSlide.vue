@@ -34,7 +34,7 @@
             <span class="d-md-none">Demo video >></span>
           </b-button>
           <b-modal :id="title" centered title="Indie Adviser Demo" size="xl"
-                   hide-footer="true" hide-header="true" body-bg-variant="dark">
+                   :hide-footer=true :hide-header=true body-bg-variant="dark">
             <div>
               <b-embed
                   type="iframe"
