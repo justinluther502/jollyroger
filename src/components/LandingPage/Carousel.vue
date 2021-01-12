@@ -37,6 +37,7 @@ export default {
         intro: {
           id: 0,
           title: this.$appname,
+          tinytitle: this.$appname,
           photo: "panorama-city.jpg",
           portrait: "panorama-city-portrait.jpg",
           slidetext: this.$appname + " is a toolkit for independent " +
@@ -49,10 +50,11 @@ export default {
         bigbroker: {
           id: 1,
           title: "Do This Yourself",
+          tinytitle: "Do This Yourself",
           photo: 'business-suit.jpg',
-          portrait: "building-portrait.jpg",
+          portrait: "business-man-portrait",
           slidetext: this.$appname + ' is designed to help financial advisers' +
-              'break away from large financial institutions without ' +
+              ' break away from large financial institutions without ' +
               'sacrificing modern analytics and client management tools.',
           shorttext: this.$appname + ' is designed to help financial advisers' +
               'break away from large financial institutions.',
@@ -61,8 +63,9 @@ export default {
         custodian: {
           id: 2,
           title: "Pick Your Custodian",
+          tinytitle: "Pick Your Custodian",
           photo: 'businessman-tablet.jpg',
-          portrait: 'london-portrait.jpg',
+          portrait: 'building-portrait.jpg',
           slidetext: 'Currently we can link directly to client account info ' +
               'for advisers using Interactive Brokers as their custodian ' +
               'bank / brokerage firm, but we will be adding other brokerage ' +
@@ -74,6 +77,7 @@ export default {
         mpt: {
           id: 3,
           title: 'Portfolio Optimization',
+          tinytitle: "Portfolio Tools",
           photo: 'business-lady.jpg',
           portrait: 'business-lady-portrait.jpg',
           slidetext: 'Our portfolio optimization algorithm solves many ' +
