@@ -14,6 +14,7 @@
                       :key="slide.id"
                       :title="slide.title"
                       :photo="slide.photo"
+                      :portrait="slide.portrait"
                       :slidetext="slide.slidetext"
                       :shorttext="slide.shorttext"
                       :bigtitle="slide.bigtitle"
@@ -37,6 +38,7 @@ export default {
           id: 0,
           title: this.$appname,
           photo: "panorama-city.jpg",
+          portrait: "panorama-city-portrait.jpg",
           slidetext: this.$appname + " is a toolkit for independent " +
               "financial advisers. Spend less time wrestling with back " +
               "office functions, and more time taking care of clients.",
@@ -48,6 +50,7 @@ export default {
           id: 1,
           title: "Do This Yourself",
           photo: 'business-suit.jpg',
+          portrait: "building-portrait.jpg",
           slidetext: this.$appname + ' is designed to help financial advisers' +
               'break away from large financial institutions without ' +
               'sacrificing modern analytics and client management tools.',
@@ -59,6 +62,7 @@ export default {
           id: 2,
           title: "Pick Your Custodian",
           photo: 'businessman-tablet.jpg',
+          portrait: 'london-portrait.jpg',
           slidetext: 'Currently we can link directly to client account info ' +
               'for advisers using Interactive Brokers as their custodian ' +
               'bank / brokerage firm, but we will be adding other brokerage ' +
@@ -71,6 +75,7 @@ export default {
           id: 3,
           title: 'Portfolio Optimization',
           photo: 'business-lady.jpg',
+          portrait: 'business-lady-portrait.jpg',
           slidetext: 'Our portfolio optimization algorithm solves many ' +
               'classic problems in portfolio theory. We can handle ' +
               'non-normal returns, dynamic correlations, and other ' +

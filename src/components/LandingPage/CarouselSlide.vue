@@ -2,8 +2,12 @@
   <b-carousel-slide style="background-color: #5a5a5a">
     <template v-slot:img>
       <img
-          class="d-block class-name"
+          class="d-none d-md-block class-name"
           :src="require(`@/assets/${photo}`)"
+          alt="image slot">
+      <img
+          class="d-md class-name"
+          :src="require(`@/assets/${portrait}`)"
           alt="image slot">
     </template>
     <div>
@@ -49,6 +53,7 @@ export default {
   name: "CarouselSlide.vue",
   props: {
     photo: String,
+    portrait: String,
     slidetext: String,
     shorttext: String,
     title: String,
