@@ -43,9 +43,9 @@ export default {
       const username = this.username
       const password = this.password
       this.$store.dispatch(AUTH_REQUEST, {username, password})
-          .then(
-              this.$router.push('/')
-          )
+          .then(() => {
+            this.$router.push('/')
+          })
     }
   }
 }
