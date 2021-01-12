@@ -10,9 +10,11 @@
       <div class="container">
         <div class="carousel-caption text-left">
 
-          <h1 class="display-1" v-if="bigtitle">{{ title }}</h1>
+          <h1 class="display-1 d-none d-md-block" v-if="bigtitle">
+            {{ title }}</h1>
+          <h1 class="display-3 d-md-none" v-if="bigtitle">
+            {{ title }}</h1>
           <h1 class="display-4" v-else>{{ title }}</h1>
-
           <p class="d-none d-md-block">{{ slidetext }}</p>
           <p class="d-md-none">{{ shorttext }}</p>
           <b-button v-b-modal="title" variant="primary"
@@ -58,9 +60,9 @@ export default {
 <style scoped>
 img {
   display: block;
-  max-width: fit-content;
-  max-height: fit-content;
-  height: auto;
+  /*max-width: fit-content;*/
+  /*max-height: fit-content;*/
+  height: 32rem;
 }
 
 .carousel-item {
@@ -74,12 +76,5 @@ img {
   left: 0;
   min-width: 100%;
   height: 32rem;
-}
-
-@media only screen and (max-width: 568px) {
-  .carousel-inner > .carousel-item > .carousel-caption {
-    margin-bottom: 100%;
-    margin-top: 14rem;
-  }
 }
 </style>

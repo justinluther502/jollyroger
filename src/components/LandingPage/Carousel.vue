@@ -90,6 +90,6 @@ export default {
 <style scoped>
 b-carousel {
   margin-bottom: 4rem;
-  height: auto;
+  height: 32rem;
 }
 </style>
