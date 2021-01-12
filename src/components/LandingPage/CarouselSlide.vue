@@ -2,11 +2,11 @@
   <b-carousel-slide style="background-color: #5a5a5a">
     <template v-slot:img>
       <img
-          class="d-none d-md-block class-name"
+          class="d-none d-md-block"
           :src="require(`@/assets/${photo}`)"
           alt="image slot">
       <img
-          class="d-md class-name"
+          class="d-md-none"
           :src="require(`@/assets/${portrait}`)"
           alt="image slot">
     </template>
