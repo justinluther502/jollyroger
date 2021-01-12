@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-light min-vh-100">
     <TopNav/>
-    <router-view/>
+    <router-view />
     <!--main window stuff will fill in here-->
   </div>
 </template>
@@ -99,11 +99,5 @@ export default {
 <style>
 body {
   padding-top: 55px;
-}
-
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
 }
 </style>

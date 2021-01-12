@@ -3,7 +3,6 @@
     <template v-slot:img>
       <img
           class="d-block class-name"
-          width="1024"
           :src="require(`@/assets/${photo}`)"
           alt="image slot">
     </template>
@@ -56,7 +55,8 @@ export default {
 <style scoped>
 img {
   display: block;
-  max-width: 35%;
+  max-width: fit-content;
+  max-height: fit-content;
   height: auto;
 }
 
@@ -67,6 +67,7 @@ img {
 
 
 .carousel-caption {
+  position: relative;
   bottom: 3rem;
   z-index: 10;
 }
@@ -79,4 +80,10 @@ img {
   height: 32rem;
 }
 
+@media only screen and (max-width: 568px) {
+  .carousel-inner > .carousel-item > .carousel-caption {
+    margin-bottom: 100%;
+    margin-top: 14rem;
+  }
+}
 </style>

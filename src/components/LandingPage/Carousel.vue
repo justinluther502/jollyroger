@@ -6,7 +6,6 @@
         controls
         indicators
         background="#ababab"
-        img-width="1024"
         img-height="400"
         style="text-shadow: 1px 1px 2px #333;"
     >
@@ -44,7 +43,7 @@ export default {
         },
         bigbroker: {
           id: 1,
-          title: "You Don't Need a Big Brokerage House",
+          title: "Do This Yourself",
           photo: 'business-suit.jpg',
           slidetext: this.$appname + ' is designed to help financial advisers' +
               'break away from large financial institutions without ' +
@@ -53,7 +52,7 @@ export default {
         },
         custodian: {
           id: 2,
-          title: "Link Directly to Your Preferred Custodian",
+          title: "Pick Your Custodian",
           photo: 'businessman-tablet.jpg',
           slidetext: 'Currently we can link directly to client account info ' +
               'for advisers using Interactive Brokers as their custodian ' +
@@ -63,7 +62,7 @@ export default {
         },
         mpt: {
           id: 3,
-          title: 'Modern Portfolio Theory Optimization',
+          title: 'Portfolio Optimization',
           photo: 'business-lady.jpg',
           slidetext: 'Our portfolio optimization algorithm solves many ' +
               'classic problems in portfolio theory. We can handle ' +
@@ -88,5 +87,6 @@ body {
 
 b-carousel {
   margin-bottom: 4rem;
+  height: auto;
 }
 </style>
