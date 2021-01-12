@@ -40,7 +40,7 @@ export default {
           title: this.$appname,
           tinytitle: this.$appname,
           photo: "panorama-city.jpg",
-          portrait: "panorama-city-portrait.jpg",
+          portrait: "building-portrait.jpg",
           slidetext: this.$appname + " is a toolkit for independent " +
               "financial advisers. Spend less time wrestling with back " +
               "office functions, and more time taking care of clients.",
@@ -66,7 +66,7 @@ export default {
           title: "Pick Your Custodian",
           tinytitle: "Pick Your Custodian",
           photo: 'businessman-tablet.jpg',
-          portrait: 'building-portrait.jpg',
+          portrait: 'vault-portrait.jpg',
           slidetext: 'Currently we can link directly to client account info ' +
               'for advisers using Interactive Brokers as their custodian ' +
               'bank / brokerage firm, but we will be adding other brokerage ' +

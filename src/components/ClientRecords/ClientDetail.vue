@@ -14,7 +14,9 @@
         <router-link class="btn btn-primary btn-lg"
                      :to="{ name: 'new-note',
                      params: { id: $route.params.id } }">
-          Record Client Interaction Notes &raquo;
+          <span class="d-none d-md-block">Record Client Interaction Notes &raquo;
+          </span>
+          <span class="d-md-none">Record Notes &raquo;</span>
         </router-link>
       </div>
     </div>
