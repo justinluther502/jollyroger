@@ -6,7 +6,7 @@
         controls
         indicators
         background="#ababab"
-        img-height="400"
+        img-height="100"
         style="text-shadow: 1px 1px 2px #333;"
     >
 
@@ -15,6 +15,7 @@
                       :title="slide.title"
                       :photo="slide.photo"
                       :slidetext="slide.slidetext"
+                      :shorttext="slide.shorttext"
                       :bigtitle="slide.bigtitle"
       />
 
@@ -39,6 +40,8 @@ export default {
           slidetext: this.$appname + " is a toolkit for independent " +
               "financial advisers. Spend less time wrestling with back " +
               "office functions, and more time taking care of clients.",
+          shorttext: this.$appname + " is a toolkit for independent " +
+              "financial advisers.",
           bigtitle: true
         },
         bigbroker: {
@@ -48,6 +51,8 @@ export default {
           slidetext: this.$appname + ' is designed to help financial advisers' +
               'break away from large financial institutions without ' +
               'sacrificing modern analytics and client management tools.',
+          shorttext: this.$appname + ' is designed to help financial advisers' +
+              'break away from large financial institutions.',
           bigtitle: false
         },
         custodian: {
@@ -58,6 +63,8 @@ export default {
               'for advisers using Interactive Brokers as their custodian ' +
               'bank / brokerage firm, but we will be adding other brokerage ' +
               'backends soon.',
+          shorttext: 'Currently we can link directly to client account info ' +
+              'for advisers using Interactive Brokers.',
           bigtitle: false
         },
         mpt: {
@@ -70,6 +77,8 @@ export default {
               'well-known pitfalls of traditional optimization. Give your ' +
               'clients the reassurance that your decisions have a solid ' +
               'basis in cutting-edge investment theory.',
+          shorttext: 'Our portfolio optimization algorithm solves many ' +
+              'classic problems in portfolio theory.',
           bigtitle: false
         }
       }
@@ -79,12 +88,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-}
-
 b-carousel {
   margin-bottom: 4rem;
   height: auto;

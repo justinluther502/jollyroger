@@ -13,10 +13,12 @@
           <h1 class="display-1" v-if="bigtitle">{{ title }}</h1>
           <h1 class="display-4" v-else>{{ title }}</h1>
 
-          <p>{{ slidetext }}</p>
+          <p class="d-none d-md-block">{{ slidetext }}</p>
+          <p class="d-md-none">{{ shorttext }}</p>
           <b-button v-b-modal="title" variant="primary"
                     class="font-weight-bold">
-            Show me the demo video >>
+            <span class="d-none d-md-block">Show me the demo video >></span>
+            <span class="d-md-none">Demo video >></span>
           </b-button>
           <b-modal :id="title" centered title="Indie Adviser Demo" size="xl"
                    header-bg-variant="dark"
@@ -46,6 +48,7 @@ export default {
   props: {
     photo: String,
     slidetext: String,
+    shorttext: String,
     title: String,
     bigtitle: Boolean
   }
@@ -63,13 +66,6 @@ img {
 .carousel-item {
   height: 32rem;
   background-color: #777;
-}
-
-
-.carousel-caption {
-  position: relative;
-  bottom: 3rem;
-  z-index: 10;
 }
 
 .carousel-item > img {
