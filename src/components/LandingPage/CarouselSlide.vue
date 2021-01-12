@@ -14,11 +14,18 @@
       <div class="container">
         <div class="carousel-caption text-left">
 
-          <h1 class="display-1 d-none d-md-block" v-if="bigtitle">
+          <span v-if="bigtitle">
+          <h1 class="display-1 d-none d-md-block">
             {{ title }}</h1>
-          <h1 class="display-3 d-md-none" v-if="bigtitle">
+          <h1 class="display-3 d-md-none">
             {{ title }}</h1>
-          <h1 class="display-4" v-else>{{ title }}</h1>
+          </span>
+
+          <span v-else>
+            <h1 class="d-none d-md-block">{{ title }}</h1>
+            <h1 class="d-md-none">{{ tinytitle }}</h1>
+          </span>
+
           <p class="d-none d-md-block">{{ slidetext }}</p>
           <p class="d-md-none">{{ shorttext }}</p>
           <b-button v-b-modal="title" variant="primary"
@@ -57,6 +64,7 @@ export default {
     slidetext: String,
     shorttext: String,
     title: String,
+    tinytitle: String,
     bigtitle: Boolean
   }
 }
@@ -65,8 +73,6 @@ export default {
 <style scoped>
 img {
   display: block;
-  /*max-width: fit-content;*/
-  /*max-height: fit-content;*/
   height: 32rem;
 }
 

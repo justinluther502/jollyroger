@@ -13,6 +13,7 @@
       <carousel-slide v-for="slide in slides"
                       :key="slide.id"
                       :title="slide.title"
+                      :tinytitle="slide.tinytitle"
                       :photo="slide.photo"
                       :portrait="slide.portrait"
                       :slidetext="slide.slidetext"
