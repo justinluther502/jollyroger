@@ -1,7 +1,12 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-top">
     <b-navbar-brand to="/">{{ $appname }}</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-toggle target="nav-collapse">
+      <template #default="{ expanded }">
+        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+        <b-icon v-else icon="chevron-bar-down"></b-icon>
+      </template>
+    </b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <!-- Left aligned site nav items -->
