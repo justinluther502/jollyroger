@@ -7,7 +7,7 @@
   "https_only": true,
   "headers": {
     "/**": {
-      "Content-Security-Policy": "default-src 'none' 'self' adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com youtube.com; frame-ancestors 'none'; base-uri 'none';",
+      "Content-Security-Policy": "default-src 'none' 'self' adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com; frame-src youtube.com; frame-ancestors 'none'; base-uri 'none';",
       "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
