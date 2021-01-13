@@ -1,6 +1,5 @@
 <template>
-  <svg viewBox="0 0 16 16" class="bi bi-ui-checks" fill="currentColor"
-       xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 16 16" class="bi bi-ui-checks" fill="currentColor">
     <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0
     1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"/>
     <path fill-rule="evenodd" d="M2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0
