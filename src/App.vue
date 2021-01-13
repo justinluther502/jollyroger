@@ -6,14 +6,6 @@
   </div>
 </template>
 
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/
-    umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrn
-    Qq4sF86dIHNDz0W1"
-    crossorigin="anonymous">
-</script>
-
 <script>
 import TopNav from './components/LandingPage/TopNav'
 import axios from 'axios'
