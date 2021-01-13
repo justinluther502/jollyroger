@@ -4,6 +4,7 @@
   "routes": {
     "/**": "index.html"
   },
+  "https_only": true,
   "headers": {
     "/**": {
       "Content-Security-Policy": "default-src 'self' adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com",
