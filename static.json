@@ -6,7 +6,7 @@
   },
   "headers": {
     "/**": {
-      "Content-Security-Policy": "default-src 'self' *.w3.org *.adviserapi-staging.herokuapp.com *.adviserapi-prod.herokuapp.com",
+      "Content-Security-Policy": "default-src 'self' w3.org adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com",
       "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
