@@ -7,7 +7,7 @@
   "https_only": true,
   "headers": {
     "/**": {
-      "Content-Security-Policy": "default-src 'self' adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com; frame-src www.youtube.com www.youtube.com/embed; img-src www.w3.org/2000/svg www.w3.org;frame-ancestors 'none'; base-uri 'none';",
+      "Content-Security-Policy": "default-src 'self' adviserapi-staging.herokuapp.com adviserapi-prod.herokuapp.com; frame-src www.youtube.com www.youtube.com/embed; img-src 'self' www.w3.org/2000/svg www.w3.org data:; frame-ancestors 'none'; base-uri 'none';",
       "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
