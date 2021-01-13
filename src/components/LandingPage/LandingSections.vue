@@ -32,7 +32,7 @@ export default {
       desc_cards: {
         mpt_tools: {
           id: 1,
-          name: "Portfolio Optimization",
+          name: "Portfolio Tools",
           icon: pieFilled,
           body: "Build efficient portfolios based on client risk tolerance, " +
               "available and allowed asset classes, and our risk model. " +
