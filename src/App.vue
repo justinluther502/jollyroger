@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-light min-vh-100">
     <TopNav/>
-    <router-view />
+    <router-view/>
     <!--main window stuff will fill in here-->
   </div>
 </template>
@@ -34,6 +34,23 @@ export default {
     toggleSide() {
       this.showSide = !this.showSide
       console.log(this.showSide)
+    },
+    checkAuth() {
+      // Decode stored jwt token, check if it is close to expiry.
+      // If it's expired, do an orderly logout.
+      // If it's close, have vuex send a request to refresh the token.
+      const token = localStorage.getItem('user-token')
+      if (token != null) {
+        const decoded = jwt_decode(token)
+        const exp = decoded.exp
+        const now = Date.now() / 1000
+        const secondsleft = exp - now
+        if (secondsleft < 0) {
+          store.dispatch(AUTH_LOGOUT)
+        } else if (secondsleft < 240) {
+          store.dispatch(AUTH_REFRESH)
+        }
+      }
     }
   },
   watch: {
@@ -57,23 +74,14 @@ export default {
       }
     }
   },
+  created() {
+    this.checkAuth()
+  },
   mounted() {
-    axios.interceptors.response.use(function (response) {
+    axios.interceptors.response.use((response) => {
       // Any status code that lie within the range of 2xx cause this function to
       // trigger. Do something with response data.
-
-      // Decode stored jwt token, check if it is close to expiry. If it's close,
-      // have vuex send a request to refresh the token.
-      const token = localStorage.getItem('user-token')
-      if (token != null) {
-        const decoded = jwt_decode(token)
-        const exp = decoded.exp
-        const now = Date.now() / 1000
-        const secondsleft = exp - now
-        if (secondsleft < 240) {
-          store.dispatch(AUTH_REFRESH)
-        }
-      }
+      this.checkAuth()
       return response
     }, function (error) {
       // Any status codes that falls outside the range of 2xx cause this
