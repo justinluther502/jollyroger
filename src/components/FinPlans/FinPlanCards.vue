@@ -17,30 +17,31 @@
       </div>
     </div>
     <hr>
-
-    <div class="card-deck" :key="added_item_count">
-      <div class="card shadow-lg" style="width: 18rem;"
+    <div class="row" :key="added_item_count">
+      <div class="col-md-6 col-lg-4 col-xl-3 py-2"
            v-for="(input, cat_idx) in fp_inputs" :key="input.id">
-        <div class="card-body">
-          <h5 class="card-title">{{ input.name }}</h5>
-          <p class="card-text">{{ input.description }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"
-              v-for="(item, cf_idx) in input.list" :key="item.id">
-            {{ item.name }}
-            <button class="btn btn-outline-danger float-right"
-                    @click="removeCF(cat_idx, cf_idx)"
-            >
-              <trashcan class="text-danger"/>
+        <div class="card shadow-lg h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ input.name }}</h5>
+            <p class="card-text">{{ input.description }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"
+                v-for="(item, cf_idx) in input.list" :key="item.id">
+              {{ item.name }}
+              <button class="btn btn-outline-danger float-right"
+                      @click="removeCF(cat_idx, cf_idx)"
+              >
+                <trashcan class="text-danger"/>
+              </button>
+            </li>
+          </ul>
+          <div class="card-footer">
+            <button class="btn btn-secondary btn-block"
+                    v-on:click="addCashflow(input.name)">
+              Add New
             </button>
-          </li>
-        </ul>
-        <div class="card-footer">
-          <button class="btn btn-secondary btn-block"
-                  v-on:click="addCashflow(input.name)">
-            Add New
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -48,12 +49,12 @@
     <br>
     <div class="row">
       <div class="col">
-        <new-asset v-on:add-asset="updateCashflowList($event, 'assets')" />
+        <new-asset v-on:add-asset="updateCashflowList($event, 'assets')"/>
         <new-expense v-on:add-expense="updateCashflowList($event, 'expenses')">
         </new-expense>
         <new-income v-on:add-income="updateCashflowList($event,
-        'employment_incomes')" />
-        <new-s-s v-on:add-ss="updateCashflowList($event, 'ss_incomes')" />
+        'employment_incomes')"/>
+        <new-s-s v-on:add-ss="updateCashflowList($event, 'ss_incomes')"/>
       </div>
     </div>
     <hr>
@@ -197,4 +198,10 @@ export default {
 .card-title {
   font-weight: bold;
 }
+
+/*.card-deck {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+/*    grid-gap: .5rem;*/
+/*}*/
 </style>
