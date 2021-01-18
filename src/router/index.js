@@ -20,22 +20,24 @@ Vue.use(Router)
 
 const ifNotAuthenticated = (to, from, next) => {
   if (!store.getters.isAuthenticated) {
-    next();
-    return;
+    next()
+    return
   }
-  next("/");
-};
+  next("/")
+}
 
 const ifAuthenticated = (to, from, next) => {
   if (store.getters.isAuthenticated) {
-    next();
-    return;
+    next()
+    return
   }
-  next("/login");
-};
+  next("/login")
+}
 
 export default new Router({
-  // mode: 'history',
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: "*",
