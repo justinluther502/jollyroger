@@ -62,6 +62,7 @@
     <button class="btn btn-block btn-lg btn-dark" v-on:click="generateFinPlan">
       Generate Financial Plan
     </button>
+    {{ errormsg }}
   </div>
 </template>
 
@@ -89,6 +90,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false
       },
+      errormsg: ""
     }
   },
   computed: {
@@ -136,55 +138,73 @@ export default {
       }
     },
     generateFinPlan() {
-      axios.post(this.api_endpoint, this.$props)
-          .then(response => {
-            this.annualLog = response.data.chart
-            this.years = response.data
-            delete this.years['chart']
-            this.taxable = this.annualLog.taxable
-            this.roth = this.annualLog.roth
-            this.trad = this.annualLog.trad
-            this.chart_data = {
-              datasets: [
-                {
-                  label: 'Taxable Savings',
-                  data: this.taxable,
-                  fill: false,
-                  borderColor: 'blue',
-                  showLine: true
+      var asset_types = []
+      for (var asset in this.fp_inputs.assets.list) {
+        asset_types.push(this.fp_inputs.assets.list[asset].tax_type)
+      }
+      const has_trad = asset_types.includes('Traditional')
+      const has_roth = asset_types.includes('Roth')
+      const has_tax = asset_types.includes('Taxable')
+
+      if (!(has_trad && has_roth && has_tax)) {
+        this.$bvToast.toast('Sorry, right now this only works if you input' +
+            ' all 3 taxable types of current investments.', {
+          title: 'Incomplete Asset List',
+          autoHideDelay: 3000,
+          toaster: 'b-toaster-top-center',
+          variant: 'danger'
+        })
+      } else {
+        axios.post(this.api_endpoint, this.$props)
+            .then(response => {
+              this.annualLog = response.data.chart
+              this.years = response.data
+              delete this.years['chart']
+              this.taxable = this.annualLog.taxable
+              this.roth = this.annualLog.roth
+              this.trad = this.annualLog.trad
+              this.chart_data = {
+                datasets: [
+                  {
+                    label: 'Taxable Savings',
+                    data: this.taxable,
+                    fill: false,
+                    borderColor: 'blue',
+                    showLine: true
+                  },
+                  {
+                    label: 'Roth Savings',
+                    data: this.roth,
+                    fill: false,
+                    borderColor: 'green',
+                    showLine: true
+                  },
+                  {
+                    label: 'Traditional Savings',
+                    data: this.trad,
+                    fill: false,
+                    borderColor: 'red',
+                    showLine: true
+                  }
+                ]
+              }
+              this.chart_options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datalabels: false,
+                title: {
+                  display: true,
+                  text: 'Savings Projections'
                 },
-                {
-                  label: 'Roth Savings',
-                  data: this.roth,
-                  fill: false,
-                  borderColor: 'green',
-                  showLine: true
-                },
-                {
-                  label: 'Traditional Savings',
-                  data: this.trad,
-                  fill: false,
-                  borderColor: 'red',
-                  showLine: true
-                }
-              ]
-            }
-            this.chart_options = {
-              responsive: true,
-              maintainAspectRatio: false,
-              datalabels: false,
-              title: {
-                display: true,
-                text: 'Savings Projections'
-              },
-            }
-            this.$emit('chartdata', this.chart_data)
-            this.$emit('chartoptions', this.chart_options)
-            this.$emit('inputs', this.fp_inputs)
-            this.$emit('indices', this.indices)
-            this.$emit('years', this.years)
-            this.$emit('showchart')
-          })
+              }
+              this.$emit('chartdata', this.chart_data)
+              this.$emit('chartoptions', this.chart_options)
+              this.$emit('inputs', this.fp_inputs)
+              this.$emit('indices', this.indices)
+              this.$emit('years', this.years)
+              this.$emit('showchart')
+            })
+      }
     },
     removeCF(category, name) {
       delete this.fp_inputs[category].list[name]
@@ -198,10 +218,4 @@ export default {
 .card-title {
   font-weight: bold;
 }
-
-/*.card-deck {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
-/*    grid-gap: .5rem;*/
-/*}*/
 </style>
