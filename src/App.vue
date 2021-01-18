@@ -39,7 +39,7 @@ export default {
   watch: {
     isAuthenticated(newval) {
       if (newval) {
-        this.$bvToast.toast(`Welcome to Adviser Tools!`, {
+        this.$bvToast.toast(`Welcome to Indie Adviser`, {
           title: 'Login Successful',
           variant: 'success',
           toaster: 'b-toaster-top-center',
