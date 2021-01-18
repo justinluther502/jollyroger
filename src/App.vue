@@ -41,17 +41,19 @@ export default {
       if (newval) {
         this.$bvToast.toast(`Welcome to Adviser Tools!`, {
           title: 'Login Successful',
-          variant: 'primary',
+          variant: 'success',
           toaster: 'b-toaster-top-center',
-          autoHideDelay: 5000
+          autoHideDelay: 3000
         })
+        this.$router.push('/')
       } else {
         this.$bvToast.toast(`You have been logged out.`, {
           title: 'Logout Notification',
-          variant: 'primary',
+          variant: 'warning',
           toaster: 'b-toaster-top-center',
-          autoHideDelay: 5000
+          autoHideDelay: 3000
         })
+        this.$router.push('/login')
       }
     }
   },

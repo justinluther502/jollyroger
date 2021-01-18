@@ -32,9 +32,6 @@ export default {
   methods: {
     signout() {
       this.$store.dispatch(AUTH_LOGOUT)
-          .then(() => {
-            this.$router.push('/login')
-          })
     }
   },
   data() {

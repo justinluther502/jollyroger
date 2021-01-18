@@ -58,7 +58,7 @@ export default {
       this.$store.dispatch(AUTH_REQUEST, {username, password})
           .then(() => {
             this.waiting = false
-            this.$router.push('/')
+            // this.$router.push('/')
           })
           .catch((error) => {
             // handle error
