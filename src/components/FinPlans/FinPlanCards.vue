@@ -57,12 +57,11 @@
         <new-s-s v-on:add-ss="updateCashflowList($event, 'ss_incomes')"/>
       </div>
     </div>
-    <hr>
-
     <button class="btn btn-block btn-lg btn-dark" v-on:click="generateFinPlan">
       Generate Financial Plan
     </button>
-    {{ errormsg }}
+    <hr>
+    <fin-plan-instructions />
   </div>
 </template>
 
@@ -72,11 +71,13 @@ import newExpense from "@/components/FinPlans/newExpense"
 import newIncome from "@/components/FinPlans/newIncome"
 import newSS from "@/components/FinPlans/newSS"
 import Trashcan from "@/components/Icons/Trashcan"
+import FinPlanInstructions from "@/components/FinPlans/FinPlanInstructions"
 import axios from "axios"
 
 export default {
   name: "FinPlanCards.vue",
-  components: {newAsset, newExpense, newIncome, newSS, Trashcan},
+  components: {newAsset, newExpense, newIncome, newSS, Trashcan,
+    FinPlanInstructions},
   props: {
     fp_inputs: Object,
     indices: Object
@@ -89,8 +90,7 @@ export default {
       chart_options: {
         responsive: true,
         maintainAspectRatio: false
-      },
-      errormsg: ""
+      }
     }
   },
   computed: {
