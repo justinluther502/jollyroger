@@ -51,8 +51,21 @@ export default {
       emailjs.sendForm(svc, template, e.target, userid)
           .then((result) => {
             console.log('SUCCESS!', result.status, result.text)
+            this.$bvToast('Thanks for your feedback!', {
+              title: 'Thank You!',
+              autoHideDelay: 3000,
+              variant: 'success',
+              toaster: 'b-toaster-top-center'
+            })
+            this.$router.push('/')
           }, (error) => {
             console.log('FAILED...', error)
+            this.$bvToast('Something went wrong with my email service.', {
+              title: 'Feedback Error',
+              autoHideDelay: 3000,
+              variant: 'danger',
+              toaster: 'b-toaster-top-center'
+            })
           })
     }
   }
