@@ -15,6 +15,7 @@ import NewNote from "@/components/ClientRecords/NewNote"
 import NewAdviser from "@/components/user/NewAdviser"
 import FakeClientList from "@/components/ClientRecords/FakeClientList"
 import FakeClientDetail from "@/components/ClientRecords/FakeClientDetail"
+import DemoFeedback from "@/components/DemoFeedback"
 
 Vue.use(Router)
 
@@ -121,6 +122,11 @@ export default new Router({
       path: "/register",
       component: NewAdviser,
       name: 'register'
+    },
+    {
+      path: "/feedback",
+      component: DemoFeedback,
+      name: 'feedback'
     }
   ]
 })
