@@ -13,62 +13,69 @@
       </b-nav-item>
     </b-nav>
     <hr>
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <h3 class="font-weight-bold">Asset Class</h3>
+    <form @submit.prevent="runOpt">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <h3 class="font-weight-bold">Asset Class</h3>
+          </div>
+          <div class="col">
+            <h3 class="font-weight-bold">Minimum Weight</h3>
+          </div>
+          <div class="col">
+            <h3 class="font-weight-bold">Maximum Weight</h3>
+          </div>
         </div>
-        <div class="col">
-          <h3 class="font-weight-bold">Minimum Weight</h3>
+        <div class="form-row">
+          <div class="col">
+            <label>Set global constraints:</label>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control border border-primary"
+                   v-model="glob_min" @change="setGlobals">
+          </div>
+          <div class="col">
+            <input type="number" class="form-control border border-primary"
+                   v-model="glob_max" @change="setGlobals">
+          </div>
         </div>
-        <div class="col">
-          <h3 class="font-weight-bold">Maximum Weight</h3>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col">
-          <label>Set global constraints:</label>
-        </div>
-        <div class="col">
-          <input type="number" class="form-control border border-primary"
-                 v-model="glob_min" @change="setGlobals">
-        </div>
-        <div class="col">
-          <input type="number" class="form-control border border-primary"
-                 v-model="glob_max" @change="setGlobals">
+        <br>
+        <div class="form-row" v-for="(title, index) in titles"
+             v-bind:key="title.id">
+          <div class="col">
+            <label>{{ title }}</label>
+          </div>
+          <div class="col" :key="globmin_index">
+            <input type="number" class="form-control" value="10"
+                   v-model.number=mins[index]>
+          </div>
+          <div class="col" :key="globmax_index">
+            <input type="number" class="form-control" value="100"
+                   v-model.number=maxes[index]>
+          </div>
         </div>
       </div>
       <br>
-      <div class="form-row" v-for="(title, index) in titles"
-           v-bind:key="title.id">
-        <div class="col">
-          <label>{{ title }}</label>
+      <div class="row">
+        <div class="col-10">
+          <button v-if="!waiting"
+              class="btn btn-dark btn-lg btn-block font-weight-bold"
+              type="submit">
+            Run MPT Optimizer
+          </button>
+          <button v-else
+              class="btn btn-dark btn-lg btn-block font-weight-bold"
+              disabled>
+            Run MPT Optimizer
+          </button>
         </div>
-        <div class="col" :key="globmin_index">
-          <input type="number" class="form-control" value="10"
-                 v-model.number=mins[index]>
-        </div>
-        <div class="col" :key="globmax_index">
-          <input type="number" class="form-control" value="100"
-                 v-model.number=maxes[index]>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-10">
-        <button
-            class="btn btn-dark btn-lg btn-block font-weight-bold"
-            v-on:click="runOpt">
-          Run MPT Optimizer
-        </button>
-      </div>
-      <div class="col-2">
-        <div class="spinner-border text-primary" role="status" v-if="waiting">
-          <span class="sr-only">Loading...</span>
+        <div class="col-2">
+          <div class="spinner-border text-primary" role="status" v-if="waiting">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
     <hr>
     <m-p-tinstructions/>
   </div>

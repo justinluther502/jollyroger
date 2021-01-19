@@ -57,9 +57,16 @@
         <new-s-s v-on:add-ss="updateCashflowList($event, 'ss_incomes')"/>
       </div>
     </div>
-    <button class="btn btn-block btn-lg btn-dark" v-on:click="generateFinPlan">
+    <button class="btn btn-block btn-lg btn-dark"
+            v-if="!waiting"
+            v-on:click="generateFinPlan">
       Generate Financial Plan
     </button>
+    <button class="btn btn-block btn-lg btn-dark" disabled v-else>
+      Generate Financial Plan
+    </button>
+    <b-spinner v-if="waiting" variant="primary" class="mt-1"/>
+    <br v-else>
     <hr>
     <fin-plan-instructions />
   </div>
@@ -90,7 +97,8 @@ export default {
       chart_options: {
         responsive: true,
         maintainAspectRatio: false
-      }
+      },
+      waiting: false
     }
   },
   computed: {
@@ -138,6 +146,7 @@ export default {
       }
     },
     generateFinPlan() {
+      this.waiting = true
       var asset_types = []
       for (var asset in this.fp_inputs.assets.list) {
         asset_types.push(this.fp_inputs.assets.list[asset].tax_type)
@@ -154,6 +163,7 @@ export default {
           toaster: 'b-toaster-top-center',
           variant: 'danger'
         })
+        this.waiting = false
       } else {
         axios.post(this.api_endpoint, this.$props)
             .then(response => {
@@ -203,6 +213,7 @@ export default {
               this.$emit('indices', this.indices)
               this.$emit('years', this.years)
               this.$emit('showchart')
+              this.waiting = false
             })
       }
     },

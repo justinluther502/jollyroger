@@ -1,34 +1,36 @@
 <template>
   <main role="main" class="container">
     <h2>Adviser Login</h2>
-    <div class="row">
-      <div class="col col-md-6">
-        <div class="form-group">
-          <label class="font-weight-bold">User name</label>
-          <input class="form-control"
-                 v-model="username" type="text" placeholder="username"/>
-          <label class="mt-2 font-weight-bold">Password</label>
-          <input class="form-control"
-                 v-model="password" type="password" placeholder="password"/>
-          <br>
+    <form @submit.prevent="loginUser">
+      <div class="row">
+        <div class="col col-md-6">
+          <div class="form-group">
+            <label class="font-weight-bold">User name</label>
+            <input class="form-control"
+                   v-model="username" type="text" placeholder="username"/>
+            <label class="mt-2 font-weight-bold">Password</label>
+            <input class="form-control"
+                   v-model="password" type="password" placeholder="password"/>
+            <br>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col col-12 col-md-6">
-        <b-button block v-on:click="loginUser" class="mr-1" variant="primary">
-          Login
-        </b-button>
+      <div class="row">
+        <div class="col col-12 col-md-6">
+          <b-button block type="submit" class="mr-1" variant="primary">
+            Login
+          </b-button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col col-12 col-md-6">
-        <b-button block :to="{ name: 'register' }" class="mr-1 mt-1"
-                  variant="success">
-          Register as New Adviser
-        </b-button>
+      <div class="row">
+        <div class="col col-12 col-md-6">
+          <b-button block :to="{ name: 'register' }" class="mr-1 mt-1"
+                    variant="success">
+            Register as New Adviser
+          </b-button>
+        </div>
       </div>
-    </div>
+    </form>
     <div class="row">
       <div class="col mt-2">
         <b-spinner v-if="waiting" variant="primary"/>
