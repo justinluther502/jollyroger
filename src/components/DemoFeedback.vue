@@ -25,6 +25,11 @@
           </b-button>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <b-spinner class="mt-2" variant="secondary" v-if="waiting" />
+        </div>
+      </div>
     </form>
   </main>
 </template>
@@ -40,11 +45,13 @@ export default {
           "feedback from current RIAs that would be interested in " +
           "participating in a beta test period. And I am not, by any means, " +
           "a professional developer so any criticism on the site itself is " +
-          "welcome as well. Thanks!"
+          "welcome as well. Thanks!",
+      waiting: false
     }
   },
   methods: {
     sendFeedback(e) {
+      this.waiting = true
       const svc = process.env.VUE_APP_EMAIL_SVC_ID
       const template = process.env.VUE_APP_EMAIL_TEMPLATE
       const userid = process.env.VUE_APP_EMAIL_USERID
@@ -59,6 +66,7 @@ export default {
                     toaster: 'b-toaster-top-center'
                   })
                 })
+            this.waiting = false
           })
           .catch((error) => {
             console.log('Feedback email failed to send...', error)
@@ -68,6 +76,7 @@ export default {
               variant: 'danger',
               toaster: 'b-toaster-top-center'
             })
+            this.waiting = false
           })
     }
   }
