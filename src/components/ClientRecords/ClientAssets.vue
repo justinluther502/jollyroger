@@ -67,7 +67,6 @@
 
 
     <hr>
-    <p><a class="btn btn-lg btn-dark" href="#" role="button">View details &raquo;</a></p>
 
   </div>
 </template>

@@ -212,7 +212,7 @@
 
     <p>
       <a class="btn btn-lg btn-dark" href="#" role="button">
-        View details &raquo;
+        Edit Client Profile &raquo;
       </a>
     </p>
   </div>
