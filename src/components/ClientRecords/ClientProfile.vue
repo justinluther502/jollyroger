@@ -8,10 +8,27 @@
     <h4 class="font-weight-bold">Biography</h4>
     <hr>
 
+    <div class="row">
+      <div class="col">
+        <p>First Name: </p>
+      </div>
+      <div class="col">
+        <p>{{indieprofile.first_name}}</p>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col">
-        <p>Name: </p>
+        <p>Last Name: </p>
+      </div>
+      <div class="col">
+        <p>{{indieprofile.last_name}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p>Name from Broker: </p>
       </div>
       <div class="col">
         <p>{{clientprofile.name}}</p>
@@ -23,7 +40,7 @@
         <p>Birthday: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.birthday}}</p>
+        <p>{{indieprofile.birthday}}</p>
       </div>
     </div>
 
@@ -41,7 +58,7 @@
         <p>Marital Status: </p>
       </div>
       <div class="col">
-        <p>{{parseMaritalStatus(clientprofile.marital_status)}}</p>
+        <p>{{parseMaritalStatus(indieprofile.marital_status)}}</p>
       </div>
     </div>
 
@@ -50,7 +67,7 @@
         <p>Spouse First: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.spouse_first}}</p>
+        <p>{{indieprofile.spouse_first}}</p>
       </div>
     </div>
 
@@ -59,7 +76,7 @@
         <p>Spouse Last: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.spouse_last}}</p>
+        <p>{{indieprofile.spouse_last}}</p>
       </div>
     </div>
 
@@ -68,7 +85,7 @@
         <p>Expected Retirement Date: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.retire_date}}</p>
+        <p>{{indieprofile.retire_date}}</p>
       </div>
     </div>
 
@@ -81,7 +98,7 @@
         <p>Employment Income: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.total_annual_income | currency}}</p>
+        <p>{{indieprofile.total_annual_income | currency}}</p>
       </div>
     </div>
 
@@ -90,7 +107,7 @@
         <p>Annual Benefits: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.annual_benefits | currency}}</p>
+        <p>{{indieprofile.annual_benefits | currency}}</p>
       </div>
     </div>
 
@@ -99,7 +116,7 @@
         <p>Short Term Income Growth Expectation: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.short_growth | percentage}}</p>
+        <p>{{indieprofile.short_growth | percentage}}</p>
       </div>
     </div>
 
@@ -108,7 +125,7 @@
         <p>Long Term Income Growth Expectation: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.long_growth | percentage}}</p>
+        <p>{{indieprofile.long_growth | percentage}}</p>
       </div>
     </div>
 
@@ -121,7 +138,7 @@
         <p>Income Taxation Notes: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.income_taxation_notes}}</p>
+        <p>{{indieprofile.income_taxation_notes}}</p>
       </div>
     </div>
 
@@ -130,7 +147,7 @@
         <p>Benefits Notes: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.benefits_notes}}</p>
+        <p>{{indieprofile.benefits_notes}}</p>
       </div>
     </div>
 
@@ -139,7 +156,7 @@
         <p>Family Notes: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.family_notes}}</p>
+        <p>{{indieprofile.family_notes}}</p>
       </div>
     </div>
 
@@ -222,7 +239,8 @@
 export default {
   name: "ClientProfile.vue",
   props: {
-    clientprofile: Object
+    clientprofile: Object,
+    indieprofile: Object
   },
   methods: {
     parseMaritalStatus(statuscode) {

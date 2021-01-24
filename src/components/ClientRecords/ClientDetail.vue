@@ -23,8 +23,12 @@
 
     <div class="container" v-if="detailLoaded">
       <div class="row">
-        <client-profile :clientprofile="clientdetail"/>
+        <client-profile :clientprofile="clientdetail"
+                        :indieprofile="indieprofile"/>
         <client-assets :holdings="clientassets"/>
+      </div>
+      <div class="row">
+        hihihihi
       </div>
     </div>
   </main>
@@ -50,7 +54,8 @@ export default {
       detailLoaded: false,
       endpoint: '',
       ibkr_key: '',
-      profile_loaded: false
+      profile_loaded: false,
+      indieprofile: {}
     }
   },
   created() {
@@ -61,6 +66,16 @@ export default {
     }, 200)
   },
   methods: {
+    getIndieProfile() {
+      console.log('getting indie profile...')
+      apiCall({
+        url: "/API/clients/" + this.$route.params.id + "/",
+        method: "GET"
+      })
+          .then(resp => {
+            this.indieprofile = resp.data
+          })
+    },
     getUserProfile() {
       apiCall({url: "/API/adviser/", method: "GET"})
           .then(resp => {
@@ -125,6 +140,7 @@ export default {
                               }
                             }
                             this.detailLoaded = true
+                            this.getIndieProfile()
                           }
                         }
                     )
