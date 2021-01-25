@@ -154,17 +154,18 @@ export default {
         })
             .then(resp => {
               console.log(resp)
-              this.$router.push('/Client/' + this.$route.params.id)
+              this.$router.push('/ClientList')
             })
       } else {
+        console.log('posting new entry')
         apiCall({
-          url: "API/clients/",
+          url: "/API/clients/",
           method: "POST",
           data: this.indieprofile
         })
             .then(resp => {
               console.log(resp)
-              this.$router.push('/Client/' + this.$route.params.id)
+              this.$router.push('/ClientList')
             })
       }
     }
