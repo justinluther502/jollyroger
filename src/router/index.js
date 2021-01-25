@@ -16,6 +16,7 @@ import NewAdviser from "@/components/user/NewAdviser"
 import FakeClientList from "@/components/ClientRecords/FakeClientList"
 import FakeClientDetail from "@/components/ClientRecords/FakeClientDetail"
 import DemoFeedback from "@/components/DemoFeedback"
+import EditClientProfile from "@/components/ClientRecords/EditClientProfile"
 
 Vue.use(Router)
 
@@ -104,6 +105,12 @@ export default new Router({
       path: "/Client/:id/newnotes",
       component: NewNote,
       name: 'new-note',
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: "/Client/:id/editprofile",
+      component: EditClientProfile,
+      name: 'edit-client-profile',
       beforeEnter: ifAuthenticated
     },
     {

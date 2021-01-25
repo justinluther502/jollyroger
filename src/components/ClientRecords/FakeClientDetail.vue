@@ -64,7 +64,6 @@ export default {
   },
   methods: {
     getIndieProfile() {
-      console.log('getting indie profile...')
       apiCall({
         url: "/API/clients/" + this.$route.params.id + "/",
         method: "GET"

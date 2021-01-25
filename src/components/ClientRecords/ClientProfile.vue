@@ -13,7 +13,7 @@
         <p>First Name: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.first_name}}</p>
+        <p>{{ indieprofile.first_name }}</p>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
         <p>Last Name: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.last_name}}</p>
+        <p>{{ indieprofile.last_name }}</p>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
         <p>Name from Broker: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.name}}</p>
+        <p>{{ clientprofile.name }}</p>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
         <p>Birthday: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.birthday}}</p>
+        <p>{{ indieprofile.birthday }}</p>
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         <p>Client Since: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.dateOpened}}</p>
+        <p>{{ clientprofile.dateOpened }}</p>
       </div>
     </div>
 
@@ -58,7 +58,7 @@
         <p>Marital Status: </p>
       </div>
       <div class="col">
-        <p>{{parseMaritalStatus(indieprofile.marital_status)}}</p>
+        <p>{{ parseMaritalStatus(indieprofile.marital_status) }}</p>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
         <p>Spouse First: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.spouse_first}}</p>
+        <p>{{ indieprofile.spouse_first }}</p>
       </div>
     </div>
 
@@ -76,7 +76,7 @@
         <p>Spouse Last: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.spouse_last}}</p>
+        <p>{{ indieprofile.spouse_last }}</p>
       </div>
     </div>
 
@@ -85,7 +85,7 @@
         <p>Expected Retirement Date: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.retire_date}}</p>
+        <p>{{ indieprofile.retire_date }}</p>
       </div>
     </div>
 
@@ -98,7 +98,7 @@
         <p>Employment Income: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.total_annual_income | currency}}</p>
+        <p>{{ indieprofile.total_annual_income | currency }}</p>
       </div>
     </div>
 
@@ -107,7 +107,7 @@
         <p>Annual Benefits: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.annual_benefits | currency}}</p>
+        <p>{{ indieprofile.annual_benefits | currency }}</p>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
         <p>Short Term Income Growth Expectation: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.short_growth | percentage}}</p>
+        <p>{{ indieprofile.short_growth | percentage }}</p>
       </div>
     </div>
 
@@ -125,7 +125,7 @@
         <p>Long Term Income Growth Expectation: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.long_growth | percentage}}</p>
+        <p>{{ indieprofile.long_growth | percentage }}</p>
       </div>
     </div>
 
@@ -138,7 +138,7 @@
         <p>Income Taxation Notes: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.income_taxation_notes}}</p>
+        <p>{{ indieprofile.income_taxation_notes }}</p>
       </div>
     </div>
 
@@ -147,7 +147,7 @@
         <p>Benefits Notes: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.benefits_notes}}</p>
+        <p>{{ indieprofile.benefits_notes }}</p>
       </div>
     </div>
 
@@ -156,7 +156,7 @@
         <p>Family Notes: </p>
       </div>
       <div class="col">
-        <p>{{indieprofile.family_notes}}</p>
+        <p>{{ indieprofile.family_notes }}</p>
       </div>
     </div>
 
@@ -169,7 +169,7 @@
         <p>Street 1: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.street}}</p>
+        <p>{{ clientprofile.street }}</p>
       </div>
     </div>
 
@@ -178,7 +178,7 @@
         <p>Street 2: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.street2}}</p>
+        <p>{{ clientprofile.street2 }}</p>
       </div>
     </div>
 
@@ -187,8 +187,8 @@
         <p>City/State/Zip: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.city}}, {{clientprofile.state}}
-          {{clientprofile.postalCode}}</p>
+        <p>{{ clientprofile.city }}, {{ clientprofile.state }}
+          {{ clientprofile.postalCode }}</p>
       </div>
     </div>
 
@@ -201,7 +201,7 @@
         <p>Street 1: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.streetResidentialAddress}}</p>
+        <p>{{ clientprofile.streetResidentialAddress }}</p>
       </div>
     </div>
 
@@ -210,7 +210,7 @@
         <p>Street 2: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.street2ResidentialAddress}}</p>
+        <p>{{ clientprofile.street2ResidentialAddress }}</p>
       </div>
     </div>
 
@@ -219,18 +219,20 @@
         <p>City/State/Zip: </p>
       </div>
       <div class="col">
-        <p>{{clientprofile.cityResidentialAddress}},
-          {{clientprofile.stateResidentialAddress}}
-          {{clientprofile.postalCodeResidentialAddress}}</p>
+        <p>{{ clientprofile.cityResidentialAddress }},
+          {{ clientprofile.stateResidentialAddress }}
+          {{ clientprofile.postalCodeResidentialAddress }}</p>
       </div>
     </div>
 
     <hr>
 
     <p>
-      <a class="btn btn-lg btn-dark" href="#" role="button">
-        Edit Client Profile &raquo;
-      </a>
+      <router-link class="btn btn-dark btn-lg"
+                   :to="{ name: 'edit-client-profile',
+                     params: { id: $route.params.id } }">
+        Add / Modify Client Profile &raquo;
+      </router-link>
     </p>
   </div>
 </template>
@@ -245,18 +247,21 @@ export default {
   methods: {
     parseMaritalStatus(statuscode) {
       switch (statuscode) {
-        case 'SI': return 'Single'
-        case 'MA': return 'Married'
-        case 'DI': return 'Divorced'
-        case 'OT': return 'Other'
-        default: return 'Unknown'
+        case 'SI':
+          return 'Single'
+        case 'MA':
+          return 'Married'
+        case 'DI':
+          return 'Divorced'
+        case 'OT':
+          return 'Other'
+        default:
+          return 'Unknown'
       }
     },
   },
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   }
 }
 </script>
