@@ -71,12 +71,9 @@ export default {
     },
     loginUser(username, password) {
       this.waiting = true
-      // const username = this.username
-      // const password = this.password
       this.$store.dispatch(AUTH_REQUEST, {username, password})
           .then(() => {
             this.waiting = false
-            // this.$router.push('/')
           })
           .catch((error) => {
             // handle error
