@@ -1,7 +1,7 @@
 <template>
   <main role="main" class="container">
     <h2>Adviser Login</h2>
-    <form @submit.prevent="loginUser">
+    <form @submit.prevent="loginUser(username, password)">
       <div class="row">
         <div class="col col-md-6">
           <div class="form-group">
@@ -31,6 +31,18 @@
         </div>
       </div>
     </form>
+
+    <br>
+    <br>
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <b-button block @click="demoLogin" class="mr-1 mt-1"
+                  variant="warning">
+          HN DEMO ONLY - Login as Fake Adviser
+        </b-button>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col mt-2">
         <b-spinner v-if="waiting" variant="primary"/>
@@ -53,10 +65,14 @@ export default {
     }
   },
   methods: {
-    loginUser() {
+    demoLogin() {
+      console.log("logging in for demo...")
+      this.loginUser('HNdemoadviser', 'gharLk4R32')
+    },
+    loginUser(username, password) {
       this.waiting = true
-      const username = this.username
-      const password = this.password
+      // const username = this.username
+      // const password = this.password
       this.$store.dispatch(AUTH_REQUEST, {username, password})
           .then(() => {
             this.waiting = false

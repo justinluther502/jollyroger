@@ -93,7 +93,6 @@
         </form>
       </div>
     </div>
-    {{ indieprofile }}
   </main>
 </template>
 

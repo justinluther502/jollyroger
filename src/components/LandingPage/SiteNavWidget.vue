@@ -35,21 +35,7 @@ export default {
               destination: "/FakeClientList",
               icon_component: "ClientSVG",
               show: true
-            },
-            // new_client: {
-            //   id: 1,
-            //   title: "Add A New Client",
-            //   destination: "/addClient",
-            //   icon_component: "ClientSVG",
-            //   show: true
-            // },
-            // client_dashboard: {
-            //   id: 2,
-            //   title: "Client Dashboard",
-            //   destination: "/",
-            //   icon_component: "PaperDocSVG",
-            //   show: true
-            // }
+            }
           }
         },
         mpt_options: {
@@ -85,26 +71,26 @@ export default {
             }
           }
         },
-        regulatory: {
-          id: 4,
-          title: "Compliance Aids",
-          buttons: {
-            new_client_checklist: {
-              id: 0,
-              title: "Onboarding Checklist",
-              destination: "/onboardCheck",
-              icon_component: "PaperDocSVG",
-              show: true
-            },
-            documentation: {
-              id: 1,
-              title: "Compliance Documentation Tracker",
-              destination: "/compliance",
-              icon_component: "PaperStackSVG",
-              show: true
-            }
-          }
-        },
+        // regulatory: {
+        //   id: 4,
+        //   title: "Compliance Aids",
+        //   buttons: {
+        //     new_client_checklist: {
+        //       id: 0,
+        //       title: "Onboarding Checklist",
+        //       destination: "/onboardCheck",
+        //       icon_component: "PaperDocSVG",
+        //       show: true
+        //     },
+        //     documentation: {
+        //       id: 1,
+        //       title: "Compliance Documentation Tracker",
+        //       destination: "/compliance",
+        //       icon_component: "PaperStackSVG",
+        //       show: true
+        //     }
+        //   }
+        // },
         advsession: {
           id: 5,
           title: "Session Logs",
