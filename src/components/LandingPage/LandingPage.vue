@@ -8,7 +8,7 @@
     <hr>
     <landing-sections/>
     <footer class="container">
-      <p>© Luther Wealth Management 2017-2021</p>
+      <p>© Indie Adviser LLC 2017-2021</p>
     </footer>
   </main>
 </template>

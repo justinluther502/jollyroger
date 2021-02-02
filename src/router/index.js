@@ -5,10 +5,10 @@ import store from "../store"
 import LandingPage from "@/components/LandingPage/LandingPage"
 import ClientList from "@/components/ClientRecords/ClientList"
 import ClientDetail from "@/components/ClientRecords/ClientDetail"
-import ClientOnboard from "@/components/ComplianceDocs/ClientOnboard"
+// import ClientOnboard from "@/components/ComplianceDocs/ClientOnboard"
 import MPTPage from "@/components/MPTTools/MPTPage"
 import newFInPlan from "@/components/FinPlans/newFInPlan"
-import Compliance from "@/components/ComplianceDocs/Compliance"
+// import Compliance from "@/components/ComplianceDocs/Compliance"
 import Settings from "@/components/user/Settings"
 import AdvisingSession from "@/components/AdvisingSession/AdvisingSession"
 import NewNote from "@/components/ClientRecords/NewNote"
@@ -73,11 +73,11 @@ export default new Router({
       name: 'client-detail',
       beforeEnter: ifAuthenticated
     },
-    {
-      path: "/onboardCheck",
-      component: ClientOnboard,
-      name: 'client-on'
-    },
+    // {
+    //   path: "/onboardCheck",
+    //   component: ClientOnboard,
+    //   name: 'client-on'
+    // },
     {
       path: "/MPT/:mpt_type",
       component: MPTPage,
@@ -90,11 +90,11 @@ export default new Router({
       name: 'new-plan',
       beforeEnter: ifAuthenticated
     },
-    {
-      path: "/compliance",
-      component: Compliance,
-      name: 'compliance'
-    },
+    // {
+    //   path: "/compliance",
+    //   component: Compliance,
+    //   name: 'compliance'
+    // },
     {
       path: "/session",
       component: AdvisingSession,
